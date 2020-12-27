@@ -6,6 +6,8 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
+const port = process.env.PORT || 3000;
+
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/signup.html");
 });
@@ -52,6 +54,6 @@ app.post("/failure", function (req, res) {
     res.redirect("/");
 });
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("Server has started at port 3000");
 });
